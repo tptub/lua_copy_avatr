@@ -1,0 +1,405 @@
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4">
+	<Meta name="ExplicitAutoJoints">true</Meta>
+	<External>null</External>
+	<External>nil</External>
+	<Item class="ScreenGui" Referent="RBX0A5A5A5A5A5A5A5A5A5A5A5A5A5A5A5A">
+		<Properties>
+			<string name="Name">AvatarCopierGUI</string>
+			<bool name="ResetOnSpawn">true</bool>
+			<int name="DisplayOrder">0</int>
+			<bool name="Enabled">true</bool>
+			<token name="ScreenInsets">0</token>
+			<bool name="IgnoreGuiInset">false</bool>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<bool name="ZIndexBehavior">0</bool>
+		</Properties>
+		<Item class="Frame" Referent="RBX1B1B1B1B1B1B1B1B1B1B1B1B1B1B1B1B">
+			<Properties>
+				<string name="Name">MainFrame</string>
+				<UDim2 name="Size">
+					<XS>0</XS>
+					<XO>200</XO>
+					<YS>0</YS>
+					<YO>100</YO>
+				</UDim2>
+				<UDim2 name="Position">
+					<XS>0.5</XS>
+					<XO>-100</XO>
+					<YS>0.5</YS>
+					<YO>-50</YO>
+				</UDim2>
+				<Color3 name="BackgroundColor3">
+					<R>0.196078431</R>
+					<G>0.196078431</G>
+					<B>0.196078431</B>
+				</Color3>
+				<int name="BorderSizePixel">2</int>
+				<bool name="Active">false</bool>
+				<Vector2 name="AnchorPoint">
+					<X>0</X>
+					<Y>0</Y>
+				</Vector2>
+				<Color3 name="BorderColor3">
+					<R>0.105882362</R>
+					<G>0.164705887</G>
+					<B>0.207843155</B>
+				</Color3>
+				<bool name="ClipsDescendants">false</bool>
+				<bool name="Draggable">false</bool>
+				<int name="LayoutOrder">0</int>
+				<float name="BackgroundTransparency">0</float>
+				<UDim2 name="SizeConstraint">
+					<XS>0</XS>
+					<XO>0</XO>
+					<YS>0</YS>
+					<YO>0</YO>
+				</UDim2>
+				<int64 name="SourceAssetId">-1</int64>
+				<BinaryString name="Tags"></BinaryString>
+				<bool name="Visible">true</bool>
+				<int name="ZIndex">1</int>
+			</Properties>
+			<Item class="TextButton" Referent="RBX2C2C2C2C2C2C2C2C2C2C2C2C2C2C2C2C">
+				<Properties>
+					<string name="Name">CopyButton</string>
+					<UDim2 name="Size">
+						<XS>1</XS>
+						<XO>-20</XO>
+						<YS>0</YS>
+						<YO>30</YO>
+					</UDim2>
+					<UDim2 name="Position">
+						<XS>0.5</XS>
+						<XO>0</XO>
+						<YS>0.5</YS>
+						<YO>-15</YO>
+					</UDim2>
+					<Vector2 name="AnchorPoint">
+						<X>0.5</X>
+						<Y>0.5</Y>
+					</Vector2>
+					<Color3 name="BackgroundColor3">
+						<R>0.31372549</R>
+						<G>0.31372549</G>
+						<B>0.31372549</B>
+					</Color3>
+					<Color3 name="TextColor3">
+						<R>1</R>
+						<G>1</G>
+						<B>1</B>
+					</Color3>
+					<string name="Text">نسخ المظهر</string>
+					<token name="Font">10</token> <!-- SourceSansBold -->
+					<float name="TextSize">18</float>
+					<bool name="Active">true</bool>
+					<Color3 name="BorderColor3">
+						<R>0.105882362</R>
+						<G>0.164705887</G>
+						<B>0.207843155</B>
+					</Color3>
+					<int name="BorderSizePixel">1</int>
+					<bool name="ClipsDescendants">false</bool>
+					<bool name="Draggable">false</bool>
+					<int name="LayoutOrder">0</int>
+					<float name="BackgroundTransparency">0</float>
+					<bool name="Modal">false</bool>
+					<bool name="Selectable">true</bool>
+					<bool name="Selected">false</bool>
+					<int64 name="SourceAssetId">-1</int64>
+					<BinaryString name="Tags"></BinaryString>
+					<bool name="TextScaled">false</bool>
+					<float name="TextStrokeTransparency">1</float>
+					<float name="TextTransparency">0</float>
+					<token name="TextTruncate">0</token>
+					<bool name="TextWrapped">false</bool>
+					<token name="TextXAlignment">2</token>
+					<token name="TextYAlignment">1</token>
+					<bool name="Visible">true</bool>
+					<int name="ZIndex">1</int>
+					<bool name="AutoButtonColor">true</bool>
+					<bool name="MouseButton1Click"></bool>
+					<bool name="MouseButton1Down"></bool>
+					<bool name="MouseButton1Up"></bool>
+					<bool name="MouseButton2Click"></bool>
+					<bool name="MouseButton2Down"></bool>
+					<bool name="MouseButton2Up"></bool>
+					<bool name="MouseEnter"></bool>
+					<bool name="MouseLeave"></bool>
+					<bool name="MouseMoved"></bool>
+					<bool name="RichText">false</bool>
+					<bool name="Style">0</bool>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="LocalScript" Referent="RBXCLIENTSCRIPT001">
+			<Properties>
+				<string name="Name">ClientLogic</string>
+				<ProtectedString name="Source"><![CDATA[--[[
+	AvatarCopierScript.lua
+	Handles the logic for targeting a player and copying their avatar.
+]]
+
+-- Services
+local Players = game:GetService("Players")
+local UserInputService = game:GetService("UserInputService")
+
+-- Local Player
+local localPlayer = Players.LocalPlayer
+
+-- GUI Elements
+local gui = script.Parent
+local mainFrame = gui:WaitForChild("MainFrame")
+local copyButton = mainFrame:WaitForChild("CopyButton")
+
+-- Target Player variable
+local targetPlayer = nil
+
+--[[
+	onClick Function
+	Handles the click event to set the target player.
+]]
+local function onClick(input, gameProcessedEvent)
+	-- Ignore if the input was processed by the game (e.g., clicking on a GUI button)
+	-- or if the click is on the copy button itself
+	local guiObjects = gui:GetGuiObjectsAtPosition(input.Position.X, input.Position.Y)
+	for _, obj in ipairs(guiObjects) do
+		if obj:IsDescendantOf(mainFrame) then
+			return
+		end
+	end
+
+	if gameProcessedEvent then
+		return
+	end
+
+	if input.UserInputType == Enum.UserInputType.MouseButton1 then
+		local mouseLocation = UserInputService:GetMouseLocation()
+		local targetObjectAtMouse = UserInputService:GetPlayerUnderMouse() -- This is deprecated for ScreenGui clicks.
+                                                                      -- We need a different approach for 3D space.
+
+        -- For clicking on players in the 3D world, we need a Raycast from the camera.
+        -- However, GetPlayerUnderMouse() might work for character parts if not occluded by other GUI.
+        -- Let's refine the target detection for 3D space.
+
+        local ray = Camera.main:ScreenPointToRay(mouseLocation.X, mouseLocation.Y)
+        local raycastParams = RaycastParams.new()
+        raycastParams.FilterType = Enum.RaycastFilterType.Blacklist
+        raycastParams.FilterDescendantsInstances = {localPlayer.Character, gui} -- Ignore self and GUI
+        raycastParams.IgnoreWater = true
+
+        local raycastResult = workspace:Raycast(ray.Origin, ray.Direction * 1000, raycastParams)
+
+        local potentialTarget = nil
+        if raycastResult and raycastResult.Instance then
+            local model = raycastResult.Instance:FindFirstAncestorOfClass("Model")
+            if model then
+                potentialTarget = Players:GetPlayerFromCharacter(model)
+            end
+        end
+
+		if potentialTarget then
+			targetPlayer = potentialTarget
+			print("Target set to: " .. targetPlayer.Name)
+		else
+            -- Fallback or if nothing relevant hit
+            -- print("No player found at click position.")
+		end
+	end
+end
+
+-- Connect the onClick function to InputBegan
+UserInputService.InputBegan:Connect(onClick)
+
+--[[
+	copyAvatar Function
+	Copies the avatar from the targetPlayer to the localPlayer.
+]]
+local function copyAvatar(target)
+	if not target then
+		print("No target specified for avatar copy.")
+		return
+	end
+
+	local localCharacter = localPlayer.Character
+	local targetCharacter = target.Character
+
+	if not localCharacter then
+		print("Local player character not found.")
+		return
+	end
+
+	if not targetCharacter then
+		print(target.Name .. " character not found.")
+		return
+	end
+
+	local localHumanoid = localCharacter:FindFirstChildOfClass("Humanoid")
+	local targetHumanoid = targetCharacter:FindFirstChildOfClass("Humanoid")
+
+	if not localHumanoid then
+		print("Local player humanoid not found.")
+		return
+	end
+
+	if not targetHumanoid then
+		print(target.Name .. " humanoid not found.")
+		return
+	end
+
+    print("Applying new appearance to " .. localPlayer.Name .. " from " .. target.Name)
+
+	-- Store current CFrame of each body part of the local player
+	local originalCrames = {}
+	for _, part in ipairs(localCharacter:GetChildren()) do
+		if part:IsA("BasePart") then
+			originalCrames[part.Name] = part.CFrame
+		end
+	end
+
+	-- Clear Old Avatar Items (Accessories, Clothing)
+	print("Clearing old accessories and clothing...")
+	for _, item in ipairs(localCharacter:GetChildren()) do
+		if item:IsA("Accessory") or item:IsA("Shirt") or item:IsA("Pants") or item:IsA("ShirtGraphic") then
+			pcall(function() item:Destroy() end)
+		end
+	end
+
+	-- Destroy existing body parts that will be replaced (excluding HumanoidRootPart)
+	print("Preparing to replace body parts...")
+	local partsToDestroy = {}
+	for _, partName in ipairs({"Head", "UpperTorso", "LowerTorso", "LeftUpperArm", "LeftLowerArm", "LeftHand", "RightUpperArm", "RightLowerArm", "RightHand", "LeftUpperLeg", "LeftLowerLeg", "LeftFoot", "RightUpperLeg", "RightLowerLeg", "RightFoot"}) do
+		local targetPart = targetCharacter:FindFirstChild(partName)
+		local localPart = localCharacter:FindFirstChild(partName)
+		if targetPart and localPart then
+			table.insert(partsToDestroy, localPart)
+		end
+	end
+	for _, part in ipairs(partsToDestroy) do
+		print("Destroying original part: " .. part.Name)
+		pcall(function() part:Destroy() end)
+	end
+
+	-- Copy Body Parts and Meshes from Target
+	print("Copying body parts and meshes...")
+	for _, item in ipairs(targetCharacter:GetChildren()) do
+		if item:IsA("BasePart") and item.Name ~= "HumanoidRootPart" then
+			local existingPart = localCharacter:FindFirstChild(item.Name)
+			if existingPart then
+				pcall(function() existingPart:Destroy() end)
+			end
+
+			local clonedPart = item:Clone()
+			if originalCrames[clonedPart.Name] then
+				clonedPart.CFrame = originalCrames[clonedPart.Name]
+			else
+                -- Attempt to position relative to HumanoidRootPart if no prior CFrame (e.g. new R15 part vs old R6)
+                local hrp = localCharacter:FindFirstChild("HumanoidRootPart")
+                if hrp then
+                    clonedPart.CFrame = hrp.CFrame
+                end
+            end
+			clonedPart.Parent = localCharacter
+			-- print("Copied BodyPart: " .. clonedPart.Name)
+		end
+	end
+
+	-- Copy Accessories from Target
+	print("Copying accessories...")
+	for _, item in ipairs(targetCharacter:GetChildren()) do
+		if item:IsA("Accessory") then
+			local clonedAccessory = item:Clone()
+			clonedAccessory.Parent = localCharacter
+			-- print("Copied Accessory: " .. clonedAccessory.Name)
+		end
+	end
+
+	-- Copy Clothing from Target
+	print("Copying clothing...")
+	for _, item in ipairs(targetCharacter:GetChildren()) do
+		if item:IsA("Shirt") or item:IsA("Pants") or item:IsA("ShirtGraphic") then
+			local clonedClothing = item:Clone()
+			clonedClothing.Parent = localCharacter
+			-- print("Copied Clothing: " .. clonedClothing.Name)
+		end
+	end
+
+	-- Copy Humanoid Properties (Scales)
+	print("Copying humanoid scales...")
+	if targetHumanoid:FindFirstChild("BodyTypeScale") and localHumanoid:FindFirstChild("BodyTypeScale") then localHumanoid.BodyTypeScale.Value = targetHumanoid.BodyTypeScale.Value end
+	if targetHumanoid:FindFirstChild("BodyProportionScale") and localHumanoid:FindFirstChild("BodyProportionScale") then localHumanoid.BodyProportionScale.Value = targetHumanoid.BodyProportionScale.Value end
+	if targetHumanoid:FindFirstChild("BodyDepthScale") and localHumanoid:FindFirstChild("BodyDepthScale") then localHumanoid.BodyDepthScale.Value = targetHumanoid.BodyDepthScale.Value end
+	if targetHumanoid:FindFirstChild("BodyHeightScale") and localHumanoid:FindFirstChild("BodyHeightScale") then localHumanoid.BodyHeightScale.Value = targetHumanoid.BodyHeightScale.Value end
+	if targetHumanoid:FindFirstChild("BodyWidthScale") and localHumanoid:FindFirstChild("BodyWidthScale") then localHumanoid.BodyWidthScale.Value = targetHumanoid.BodyWidthScale.Value end
+	if targetHumanoid:FindFirstChild("HeadScale") and localHumanoid:FindFirstChild("HeadScale") then localHumanoid.HeadScale.Value = targetHumanoid.HeadScale.Value end
+
+    -- Copy Body Colors
+    print("Copying body colors...")
+    local bodyColors = targetCharacter:FindFirstChild("Body Colors")
+    if bodyColors then
+        local existingBodyColors = localCharacter:FindFirstChild("Body Colors")
+        if existingBodyColors then
+            existingBodyColors:Destroy()
+        end
+        bodyColors:Clone().Parent = localCharacter
+    else
+        -- If target has no "Body Colors" object, remove from local player if present
+        local existingBodyColors = localCharacter:FindFirstChild("Body Colors")
+        if existingBodyColors then
+            existingBodyColors:Destroy()
+        end
+    end
+
+    -- Set HumanoidDescription
+    -- This is a more robust way to copy appearance, especially for R15 and complex avatars
+    print("Attempting to apply HumanoidDescription...")
+    local successDesc, humanoidDescription = pcall(function()
+        return targetHumanoid:GetAppliedDescription()
+    end)
+
+    if successDesc and humanoidDescription then
+        pcall(localHumanoid.ApplyDescription, localHumanoid, humanoidDescription)
+        print("HumanoidDescription applied.")
+    else
+        warn("Failed to get or apply HumanoidDescription. Falling back to manual part copying.")
+        -- The manual part copying above will serve as a fallback.
+        -- Forcing a character reload might be needed if manual copying is not perfect.
+        print("Reloading character as fallback...")
+        localPlayer:LoadCharacter()
+    end
+
+
+	print("Avatar copy attempt finished for target: " .. target.Name)
+end
+
+--[[
+	onCopyButtonPressed Function
+	Connected to the GUI button's click event.
+]]
+local function onCopyButtonPressed()
+	if targetPlayer then
+		if targetPlayer.Character then
+			print("Copy button pressed. Attempting to copy " .. targetPlayer.Name .. "'s avatar.")
+			copyAvatar(targetPlayer)
+		else
+			print("No character found for target: " .. targetPlayer.Name .. ". They might have respawned or left.")
+		end
+	else
+		print("No target selected. Click on a player in the 3D world to target them, then press the copy button.")
+	end
+end
+
+-- Connect the button click event
+copyButton.MouseButton1Click:Connect(onCopyButtonPressed)
+
+print("Avatar Copier GUI Initialized. ClientLogic script running.")
+print("Click on a player to target, then click the 'نسخ المظهر' button.")
+
+]]></ProtectedString>
+				<bool name="Enabled">true</bool>
+				<int64 name="SourceAssetId">-1</int64>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+	</Item>
+</roblox>
