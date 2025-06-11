@@ -1,0 +1,1 @@
+# lua_copy_avatr
